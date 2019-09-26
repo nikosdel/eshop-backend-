@@ -52,6 +52,4 @@ app.use((error,req,res,next)=>{
     })
 });
 
-app.listen(3000,()=>{
-    console.log("server works in 3000 port");
-});
+app.listen(process.env.PORT,process.env.IP);
