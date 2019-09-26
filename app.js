@@ -27,7 +27,8 @@ app.use((req,res,next)=> {
 app.get("/",function (req,res) {
     res.send("server works");
 });
-mongoose.connect("mongodb://localhost:27017/delivery_app",{useNewUrlParser:true});
+const uri="mongodb+srv://admin:admin@cluster0-c2jkj.mongodb.net/test?retryWrites=true&w=majority"
+mongoose.connect(uri,{useNewUrlParser:true});
 var customerRoute=require("./routes/customerRoute");
 var productRoute=require("./routes/productRoute");
 var orderRoute=require("./routes/orderRoute");
