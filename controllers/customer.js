@@ -19,7 +19,8 @@ exports.customer_register= (req,res,next)=> {
                     } else {
                         const newCustomer = new customer({
                             username: req.body.username,
-                            password: hash
+                            password: hash,
+                            location:req.body.location
                         });
                         newCustomer.save().then(result=>{
                             console.log(result)
@@ -71,6 +72,7 @@ exports.customer_login=(req,res)=> {
                     return res.status(200).json({
                         message:"Auth succesasdsful",
                         id:customer[0].id,
+                        location:customer[0].location,
                         username:customer[0].username,
                         token:token
                     });
