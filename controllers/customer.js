@@ -70,6 +70,8 @@ exports.customer_login=(req,res)=> {
                         });
                     return res.status(200).json({
                         message:"Auth successful",
+                        id:result.id,
+                        username:result.username,
                         token:token
                     });
                 }
