@@ -69,7 +69,7 @@ exports.customer_login=(req,res)=> {
 
                         });
                     return res.status(200).json({
-                        message:"Auth successful",
+                        message:"Auth succesasdsful",
                         id:customer.id,
                         username:customer.username,
                         token:token
