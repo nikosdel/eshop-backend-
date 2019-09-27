@@ -70,11 +70,13 @@ exports.customer_login=(req,res)=> {
 
                         });
                     return res.status(200).json({
-                        message:"Auth succesasdsful",
-                        id:customer[0].id,
-                        location:customer[0].location,
-                        username:customer[0].username,
-                        token:token
+                        message:"Auth successful",
+                        customer: {
+                            id: customer[0].id,
+                            location: customer[0].location,
+                            username: customer[0].username,
+                            token: token
+                        }
                     });
                 }
                 res.status(401).json({
