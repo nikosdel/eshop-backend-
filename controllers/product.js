@@ -4,17 +4,14 @@ exports.products_get_all_products=(req,res,next)=>{
         .exec()
         .then(docs=>{
             const response={
-                count:docs.length,
+
                 products:docs.map(doc=>{
                     return {
                         name:doc.name,
                         price:doc.price,
                         _id:doc._id,
-                        image:'https://warm-wildwood-98145.herokuapp.com/'+doc.productImage,
-                        request:{
-                            type:'GET',
-                            url:'https://warm-wildwood-98145.herokuapp.com/products/'+doc._id
-                        }
+                        image:'https://warm-wildwood-98145.herokuapp.com/'+doc.productImage
+
                     }
                 })
             };
