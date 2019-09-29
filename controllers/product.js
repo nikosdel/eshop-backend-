@@ -10,14 +10,14 @@ exports.products_get_all_products=(req,res,next)=>{
                         name:doc.name,
                         price:doc.price,
                         _id:doc._id,
-                        image:'http://localhost:3000/'+doc.image,
+                        image:'http://localhost:3000/'+doc.productImage,
                         request:{
                             type:'GET',
                             url:'http://localhost:3000/products/'+doc._id
                         }
                     }
                 })
-            }
+            };
             console.log(docs);
             if(docs.length>=0){
                 res.status(200).json(response);
@@ -52,7 +52,7 @@ exports.products_create_product=(req,res,next)=>{
                 createProduct:{
                     name:result.name,
                     price:result.price,
-                    productImage:result.image,
+                    productImage:result.productImage,
                     _id:result._id,
                     request:{
                         type:'GET',
