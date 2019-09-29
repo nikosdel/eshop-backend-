@@ -10,10 +10,10 @@ exports.products_get_all_products=(req,res,next)=>{
                         name:doc.name,
                         price:doc.price,
                         _id:doc._id,
-                        image:'http://localhost:3000/'+doc.productImage,
+                        image:'https://warm-wildwood-98145.herokuapp.com/'+doc.productImage,
                         request:{
                             type:'GET',
-                            url:'http://localhost:3000/products/'+doc._id
+                            url:'https://warm-wildwood-98145.herokuapp.com/products/'+doc._id
                         }
                     }
                 })
@@ -56,7 +56,7 @@ exports.products_create_product=(req,res,next)=>{
                     _id:result._id,
                     request:{
                         type:'GET',
-                        url:"http://localhost:3000/products/"+result._id
+                        url:"https://warm-wildwood-98145.herokuapp.com/products/"+result._id
                     }
                 }
             });
@@ -82,7 +82,7 @@ exports.products_get_product=(req,res,next)=>{
                     request:{
                         type:'GET',
                         description:"Get all products",
-                        url:'http://localhost:3000/products'
+                        url:'https://warm-wildwood-98145.herokuapp.com/products/'
                     }
                 });
 
@@ -116,7 +116,7 @@ exports.products_update_product=(req,res,next)=>{
                 message:'Product Updated',
                 request:{
                     type:'GET',
-                    url:'http://localhost:3000/products/'+ id
+                    url:'https://warm-wildwood-98145.herokuapp.com/products/'+ id
                 }
             })
         })
@@ -138,7 +138,7 @@ exports.products_delete_product=(req,res,next)=>{
                 message:"product Deleted",
                 request:{
                     type:'POST',
-                    url:'http://localhost:3000/products',
+                    url:'https://warm-wildwood-98145.herokuapp.com/products/',
                     body:{name:'String',price:'Number',image:'String'}
                 }
             });

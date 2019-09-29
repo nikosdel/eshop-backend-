@@ -28,7 +28,7 @@ const upload=multer({
 });
 router.get('/',checkAuth,ProductsController.products_get_all_products);
 
-router.post('/',checkAuth,upload.single('productImage'),ProductsController.products_create_product);
+router.post('/',upload.single('productImage'),checkAuth,ProductsController.products_create_product);
 
 router.get("/:productId",ProductsController.products_get_product);
 
