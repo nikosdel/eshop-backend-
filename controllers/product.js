@@ -5,7 +5,7 @@ exports.products_get_all_products=(req,res,next)=>{
         .then(docs=>{
             const response={
 
-                products:docs.map(doc=>{
+                productModel:docs.map(doc=>{
                     return {
                         name:doc.name,
                         price:doc.price,
