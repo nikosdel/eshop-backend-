@@ -3,16 +3,6 @@ exports.products_get_all_products=(req,res,next)=>{
     Product.find()
         .exec()
         .then(docs=>{
-
-            var result=[];
-            for (var i=0;i<docs.length;i++){
-                result.push({
-                    name:docs.name[i],
-                    price:docs.price[i],
-                    _id:docs.id[i],
-                    image:docs.image[i]})
-
-            }
             const response={
 
                 productModel:docs.map(doc=>{
@@ -27,7 +17,7 @@ exports.products_get_all_products=(req,res,next)=>{
             };
             console.log(docs);
             if(docs.length>=0){
-                res.status(200).json.(response);
+                res.status(200).json(response);
             }
             else{
                 res.status(404).json({
