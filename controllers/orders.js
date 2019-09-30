@@ -45,8 +45,8 @@ exports.make_new_order=(req,res,next)=>{
             const order=new Order({
                 _id:mongoose.Types.ObjectId(),
                 quantity:req.body.quantity,
-                product:req.body.productId
-
+                product:req.body.productId,
+                customerId:req.body.customerId
 
             });
             return  order.save()
@@ -58,7 +58,8 @@ exports.make_new_order=(req,res,next)=>{
                 createOrder:{
                     _id:result._id,
                     product:result.product,
-                    quantity:result.quantity
+                    quantity:result.quantity,
+                    customerId:req.body.customerId
                 },
                 requests:{
                     type:'GET',
