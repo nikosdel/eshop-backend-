@@ -17,7 +17,7 @@ exports.products_get_all_products=(req,res,next)=>{
             };
             console.log(docs);
             if(docs.length>=0){
-                res.status(200).json.parse(response);
+                res.status(200).json(response);
             }
             else{
                 res.status(404).json({
