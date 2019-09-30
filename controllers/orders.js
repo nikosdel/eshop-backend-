@@ -34,6 +34,37 @@ exports.orders_get_all=(req,res,next)=>{
         });
 }
 
+exports.get_user_orders=(req,res,next)=>{
+    Order.findById(req.params.customerId)
+        .select('product quantity _id')
+        .populate('product')
+        .exec()
+        .then(docs=>
+        {
+            res.status(200).json({
+                count:docs.length,
+                order:docs.map(doc=>{
+                    return{
+                        _id:doc._id,
+                        quantity:doc.quantity,
+                        product:doc.product,
+                        request:{
+                            type:'GET',
+                            url:'http://localhost:3000/orders/'+doc._id
+                        }
+
+                    }
+                }),
+
+            })
+        })
+        .catch(err=>{
+            res.status(500).json({
+                error:err
+            });
+        });
+};
+
 exports.make_new_order=(req,res,next)=>{
     Product.findById(req.body.productId)
         .then(product=>{

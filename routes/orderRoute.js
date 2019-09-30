@@ -11,4 +11,6 @@ router.get("/:orderId",checkAuth,OrdersCOntroller.orders_get_order);
 
 router.delete("/:orderId",checkAuth,OrdersCOntroller.orders_delete_order);
 
+router.get("/:customerId",checkAuth,OrdersCOntroller.get_user_orders);
+
 module.exports=router;
