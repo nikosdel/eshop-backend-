@@ -17,11 +17,7 @@ exports.products_get_all_products=(req,res,next)=>{
             };
             console.log(docs);
             if(docs.length>=0){
-                res.status(200).json.parse([{name:docs.name,
-                    price:docs.price,
-                    _id:docs._id,
-                    image:'https://warm-wildwood-98145.herokuapp.com/'+docs.productImage
-                }]);
+                res.status(200).json.parse(response);
             }
             else{
                 res.status(404).json({
