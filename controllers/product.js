@@ -15,19 +15,19 @@ exports.products_get_all_products=(req,res,next)=>{
             }
             const response={
 
-                // productModel:docs.map(doc=>{
-                //     return {
-                //         name:doc.name,
-                //         price:doc.price,
-                //         _id:doc._id,
-                //         image:'https://warm-wildwood-98145.herokuapp.com/'+doc.productImage
-                //
-                //     }
-                // })
+                productModel:docs.map(doc=>{
+                    return {
+                        name:doc.name,
+                        price:doc.price,
+                        _id:doc._id,
+                        image:'https://warm-wildwood-98145.herokuapp.com/'+doc.productImage
+
+                    }
+                })
             };
             console.log(docs);
             if(docs.length>=0){
-                res.status(200).json.stringify(result);
+                res.status(200).json.(response);
             }
             else{
                 res.status(404).json({
