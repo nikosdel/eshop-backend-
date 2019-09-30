@@ -33,6 +33,8 @@ exports.products_get_all_products=(req,res,next)=>{
         })
 };
 
+
+
 exports.products_create_product=(req,res,next)=>{
 
     const product=new Product({

@@ -17,6 +17,7 @@ exports.orders_get_all=(req,res,next)=>{
                         _id:doc._id,
                         quantity:doc.quantity,
                         product:doc.product,
+                        customerId:doc.customerId,
                         request:{
                             type:'GET',
                             url:'http://localhost:3000/orders/'+doc._id
@@ -46,6 +47,8 @@ exports.make_new_order=(req,res,next)=>{
                 _id:mongoose.Types.ObjectId(),
                 quantity:req.body.quantity,
                 product:req.body.productId,
+                customerId:req.body.customerId
+
 
 
             });
@@ -58,7 +61,8 @@ exports.make_new_order=(req,res,next)=>{
                 createOrder:{
                     _id:result._id,
                     product:result.product,
-                    quantity:result.quantity
+                    quantity:result.quantity,
+                    customerId:result.customerId
                 },
                 requests:{
                     type:'GET',

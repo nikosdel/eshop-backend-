@@ -9,11 +9,10 @@ var orderSchema=new mongoose.Schema({
         required:true
     }],
     customerId:{
-        id:{
 
             type:mongoose.Schema.Types.ObjectId,
             ref:"Customer"
-    }}
+    }
 });
 
 module.exports=mongoose.model("Order",orderSchema);
