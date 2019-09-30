@@ -6,7 +6,11 @@ exports.products_get_all_products=(req,res,next)=>{
 
             var result=[];
             for (var i=0;i<docs.length;i++){
-                result.push({name:docs.name[i],price:docs.price[i],_id:docs.id[i],image:docs.image[i]})
+                result.push({
+                    name:docs.name[i],
+                    price:docs.price[i],
+                    _id:docs.id[i],
+                    image:docs.image[i]})
 
             }
             const response={
@@ -23,7 +27,7 @@ exports.products_get_all_products=(req,res,next)=>{
             };
             console.log(docs);
             if(docs.length>=0){
-                res.status(200).json(result);
+                res.status(200).json.stringify(result);
             }
             else{
                 res.status(404).json({
