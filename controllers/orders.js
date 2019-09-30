@@ -4,7 +4,7 @@ const customer=require('../models/customer');
 const mongoose=require('mongoose');
 
 exports.orders_get_all=(req,res,next)=>{
-    Order.find({'customerId.id':customer.id})
+    Order.find()
         .select('product quantity _id')
         .populate('product')
         .exec()
