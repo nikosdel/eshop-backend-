@@ -14,13 +14,13 @@ exports.orders_get_all=(req,res,next)=>{
                 count:docs.length,
 
                 order:docs.map(doc=>{
-                    return[{
+                    return{
                         _id:doc._id,
                         customerId:doc.customerId,
                         quantity:doc.quantity,
                         product:doc.product,
 
-                }]
+                    }
                 }),
 
             })
