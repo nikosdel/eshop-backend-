@@ -11,8 +11,7 @@ exports.orders_get_all=(req,res,next)=>{
         .then(docs=>
         {
             res.status(200).json({
-                count:docs.length,
-
+               
                 order:docs.map(doc=>{
                     return{
                         _id:doc._id,
