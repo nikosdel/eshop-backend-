@@ -6,5 +6,5 @@ var customersSchema=new mongoose.Schema({
     password:{type:String, required:true},
     location:String,
 
-},{versionKey: false});
+});
 module.exports=mongoose.model("Customer",customersSchema);

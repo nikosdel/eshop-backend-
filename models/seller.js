@@ -11,5 +11,5 @@ var sellerSchema=new mongoose.Schema({
     }
 
 
-},{versionKey: false});
+});
 module.exports=mongoose.model("Seller",sellerSchema);
