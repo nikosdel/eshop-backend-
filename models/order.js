@@ -13,6 +13,6 @@ var orderSchema=new mongoose.Schema({
             type:mongoose.Schema.Types.ObjectId,
             ref:"Customer"
     }
-});
+},{versionKey: false});
 
 module.exports=mongoose.model("Order",orderSchema);
