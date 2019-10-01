@@ -11,7 +11,7 @@ exports.orders_get_all=(req,res,next)=>{
         .then(docs=>
         {
             res.status(200).json({
-               
+
                 order:docs.map(doc=>{
                     return{
                         _id:doc._id,
@@ -35,6 +35,7 @@ exports.get_user_orders=(req,res,next)=>{
     const customerid=req.params.customerId;
     Order.find({customerId:customerid})
         .select('product quantity _id customerId')
+        .populate('product')
         .exec()
         .then(docs=>
         {
