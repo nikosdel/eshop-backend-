@@ -35,8 +35,7 @@ exports.orders_get_all=(req,res,next)=>{
 exports.get_user_orders=(req,res,next)=>{
     const customerid=req.params.customerId;
     Order.find({customerId:customerid})
-        .select('product quantity _id')
-        .populate('product')
+        .select('product quantity _id customerId')
         .exec()
         .then(docs=>
         {
