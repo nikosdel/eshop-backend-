@@ -16,10 +16,10 @@ exports.orders_get_all=(req,res,next)=>{
                 order:docs.map(doc=>{
                     return{
                         _id:doc._id,
-                        customerId:req.body.customerId,
+                        customerId:doc.customerId,
                         quantity:doc.quantity,
                         product:doc.product,
-                        
+
                     }
                 }),
 
@@ -45,12 +45,10 @@ exports.get_user_orders=(req,res,next)=>{
                 order:docs.map(doc=>{
                     return{
                         _id:doc._id,
+                        customerId:doc.customerId,
                         quantity:doc.quantity,
                         product:doc.product,
-                        request:{
-                            type:'GET',
-                            url:'http://localhost:3000/orders/'+doc._id
-                        }
+
 
                     }
                 }),
