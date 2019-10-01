@@ -87,7 +87,7 @@ exports.make_new_order=(req,res,next)=>{
                     _id:result._id,
                     product:result.product,
                     quantity:result.quantity,
-                    customerId:req.body.customerId
+                    customerId:result.customerId
                 },
                 requests:{
                     type:'GET',

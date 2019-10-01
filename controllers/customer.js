@@ -18,6 +18,7 @@ exports.customer_register= (req,res,next)=> {
                         });
                     } else {
                         const newCustomer = new customer({
+                            _id: new mongoose.Types.ObjectId(),
                             username: req.body.username,
                             password: hash,
                             location:req.body.location
@@ -72,7 +73,7 @@ exports.customer_login=(req,res)=> {
                     return res.status(200).json({
                         message:"Auth successful",
                         customer: {
-                            id: customer[0].id,
+                            id: customer[0]._id,
                             location: customer[0].location,
                             username: customer[0].username,
                             token: token
