@@ -32,10 +32,12 @@ mongoose.connect(uri,{useNewUrlParser:true});
 var customerRoute=require("./routes/customerRoute");
 var productRoute=require("./routes/productRoute");
 var orderRoute=require("./routes/orderRoute");
+var sellerRoute=require("./routes/sellerRoute");
 
 app.use("/",customerRoute);
 app.use("/products",productRoute);
 app.use("/orders",orderRoute);
+app.use("/seller",sellerRoute);
 
 app.use((req,res,next)=>{
     const error=new Error('Not found');
