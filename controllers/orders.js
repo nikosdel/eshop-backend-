@@ -81,16 +81,7 @@ exports.make_new_order=(req,res,next)=>{
             console.log(result);
             res.status(201).json({
                 message:'Order stored',
-                createOrder:{
-                    _id:result._id,
-                    product:result.product,
-                    quantity:result.quantity,
-                    customerId:result.customerId
-                },
-                requests:{
-                    type:'GET',
-                    url:'http://localhost:3000/orders/'+result._id
-                }
+                
             });
         })
         .catch(err=>{
