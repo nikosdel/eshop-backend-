@@ -5,19 +5,20 @@ exports.products_get_all_products=(req,res,next)=>{
         .then(docs=>{
             const response={
 
-                productModel:docs.map(doc=>{
-                    return {
-                        name:doc.name,
-                        price:doc.price,
-                        _id:doc._id,
-                        image:'https://warm-wildwood-98145.herokuapp.com/'+doc.productImage
 
-                    }
-                })
             };
             console.log(docs);
             if(docs.length>=0){
-                res.status(200).json(response);
+                res.status(200).json({productModel:docs.map(doc=>{
+                        return {
+                            name:doc.name,
+                            price:doc.price,
+                            _id:doc._id,
+                            image:'https://warm-wildwood-98145.herokuapp.com/'+doc.productImage
+
+                        }
+                    })
+                });
             }
             else{
                 res.status(404).json({
