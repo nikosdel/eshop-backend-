@@ -3,11 +3,12 @@ mongoose=require("mongoose");
 var orderSchema=new mongoose.Schema({
     _id:mongoose.Schema.Types.ObjectId,
    quantity:{type:Number, default:1},
-    product:[{
+    product:{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Product',
         required:true
-    }],
+    },
+
     customerId:{
 
             type:mongoose.Schema.Types.ObjectId,

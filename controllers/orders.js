@@ -81,7 +81,7 @@ exports.make_new_order=(req,res,next)=>{
             console.log(result);
             res.status(201).json({
                 message:'Order stored',
-                
+
             });
         })
         .catch(err=>{
