@@ -125,12 +125,8 @@ exports.orders_delete_order=(req,res,next)=>{
         .exec()
         .then(result=>{
             res.status(200).json({
-                message:"Order Removed Succesfully",
-                request:{
-                    type:'POST',
-                    url:'http://localhost:3000/orders',
-                    body:{productId:'ID',quantity:'Number'}
-                }})
+                message:"Order Removed Succesfully"
+                })
 
         })
         .catch()
