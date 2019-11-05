@@ -102,7 +102,7 @@ exports.customer_update=(req,res,next)=>{
     // for(const ops of req.body){
     //     updateOps[ops.propName]=ops.value;
     // }
-    customer.update({_id:id},{$set:req.body})
+    customer.update({_id:id},req.body)
         .exec()
         .then(result=>{
 
