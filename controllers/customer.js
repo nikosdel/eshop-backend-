@@ -98,11 +98,11 @@ exports.customer_login=(req,res)=> {
 
 exports.customer_update=(req,res,next)=>{
     const id=req.params.customerId;
-    const updateOps={};
-    for(const ops of req.body){
-        updateOps[ops.propName]=ops.value;
-    }
-    customer.update({_id:id},{$set:updateOps})
+    // const updateOps={};
+    // for(const ops of req.body){
+    //     updateOps[ops.propName]=ops.value;
+    // }
+    customer.update({_id:id},{$set:req.body})
         .exec()
         .then(result=>{
 
