@@ -95,6 +95,29 @@ exports.customer_login=(req,res)=> {
         })
 };
 
+
+exports.customer_update=(req,res,next)=>{
+    const id=req.params.customerId;
+    const updateOps={};
+    for(const ops of req.body){
+        updateOps[ops.propName]=ops.value;
+    }
+    customer.update({_id:id},{$set:updateOps})
+        .exec()
+        .then(result=>{
+
+            res.status(200).json({
+                message:'Product Updated',
+
+            })
+        })
+        .catch(err=>{
+            console.log(err);
+            res.status(500).json({
+                error:err
+            })
+        });
+}
 exports.customer_delete=(req,res,next)=>{
     customer.remove({_id:req.params.userId})
         .exec()
