@@ -102,21 +102,20 @@ exports.customer_update=(req,res,next)=>{
     // for(const ops of req.body){
     //     updateOps[ops.propName]=ops.value;
     // }
-    customer.update({_id:id},req.body)
-        .exec()
-        .then(result=>{
-
-            res.status(200).json({
-                message:'Product Updated',
-
-            })
-        })
-        .catch(err=>{
+    customer.findByIdAndUpdate(id,{
+        username:req.body.username,
+        location:req.body.location
+    },function (err,customerUpdate) {
+        if(err){
+            console.log("Couldnt update game")
             console.log(err);
-            res.status(500).json({
-                error:err
-            })
-        });
+        }
+        else{
+           res.status(200).json({
+               message:"Customer Updated"
+           })
+        }
+    })
 }
 exports.customer_delete=(req,res,next)=>{
     customer.remove({_id:req.params.userId})

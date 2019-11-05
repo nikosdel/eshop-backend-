@@ -9,7 +9,7 @@ router.post("/login",CustomerController.customer_login);
 
 router.delete('/:userId',checkAuth,CustomerController.customer_delete);
 
-router.patch('/:customerId',checkAuth,CustomerController.customer_update);
+router.post('/:customerId',checkAuth,CustomerController.customer_update);
 
 
 
