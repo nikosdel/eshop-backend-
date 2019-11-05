@@ -49,7 +49,7 @@ exports.products_create_product=(req,res,next)=>{
         .then(result=>{
             res.status(200).json({
                 message:"Created product Succesfully",
-               
+
             });
 
         })
@@ -105,10 +105,7 @@ exports.products_update_product=(req,res,next)=>{
 
             res.status(200).json({
                 message:'Product Updated',
-                request:{
-                    type:'GET',
-                    url:'https://warm-wildwood-98145.herokuapp.com/products/'+ id
-                }
+                
             })
         })
         .catch(err=>{
