@@ -107,7 +107,7 @@ exports.customer_update=(req,res,next)=>{
         location:req.body.location
     },function (err,customerUpdate) {
         if(err){
-            console.log("Couldnt update game")
+            console.log("Couldnt update customer")
             console.log(err);
         }
         else{
