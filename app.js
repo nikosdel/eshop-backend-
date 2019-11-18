@@ -1,10 +1,7 @@
-var express=require("express");
-var bodyParser=require("body-parser");
-var app=express();
-var customer=require("./models/customer");
-var product=require("./models/product");
-var order=require("./models/order");
-var seller=require("./models/seller");
+const express=require("express");
+const bodyParser=require("body-parser");
+const app=express();
+
 const mongoose=require('mongoose');
 
 app.use('/uploads',express.static('uploads'))

@@ -2,6 +2,8 @@ var mongoose=require("mongoose");
 var customer=require("../models/customer");
 var bcrypt=require("bcryptjs");
 var jwt=require("jsonwebtoken");
+
+
 exports.customer_register= (req,res,next)=> {
     customer.find({username:req.body.username})
         .exec()
